@@ -37,7 +37,7 @@ class SaleOrderLine(models.Model):
         # @api.onchange('price_unit')
         # def compare_price_units(self):
         for r in self:
-            ordered_qty = r.product_uom_qty - r.qty_delivered
+            ordered_qty = r.product_uom_qty - r.qty_delivered 
             if not self.env.user.has_group('mgs_price_control.minimum_qty_confirm') and ordered_qty > r.free_qty_today and r.product_id.detailed_type == 'product':
-                raise UserError("""You're trying to sell %s% s of the product %s which you don't have
+                raise UserError("""You're trying to sell %s %s of the product %s which you don't have
 Available Quantity: %s %s""" % (ordered_qty, r.product_uom.name, r.product_id.name, r.free_qty_today, r.product_uom.name))
