@@ -1,0 +1,13 @@
+<odoo>
+  <record id="view_sale_form_maximum_minimum" model="ir.ui.view">
+      <field name="name">sale.order.form.maximum_minimum</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+          <!-- <field name="maximum_price"/> -->
+          <field name="minimum_price"/>
+        </xpath>
+      </field>
+    </record>
+</odoo>
